@@ -13,4 +13,5 @@ public interface IProductoService {
     public void PostProductos(ProductosEntity e);
     public void PutProductos(ProductosEntity e);
     public ProductosEntity findProductos(Long id);
+    public ProductosEntity findProductoById(Long id);
 }
