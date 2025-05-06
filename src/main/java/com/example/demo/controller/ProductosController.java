@@ -5,6 +5,7 @@ import com.example.demo.entity.ProductosEntity;
 import com.example.demo.repo.IProductoRepo;
 import com.example.demo.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +19,20 @@ public class ProductosController {
     private IProductoService iprod_service;
 
     @GetMapping
-    public List<ProductosEntity> GetProductos(){
-        return iprod_service.getProductos();
+    public List<ProductosEntity>  GetProductos(){
+        return  iprod_service.getProductos();
+
+    }
+
+
+    @GetMapping("/{id_prod}")
+    public ResponseEntity<?>  GetProductos(@PathVariable Long id_prod){
+        for(ProductosEntity e: iprod_service.getProductos()){
+            if(e.getId_producto().equals(id_prod)){
+                return ResponseEntity.ok(e);
+            }
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró la data");
     }
 
     @PostMapping
