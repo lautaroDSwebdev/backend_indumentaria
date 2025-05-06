@@ -22,6 +22,7 @@ public class FileUploadServiceImp implements IFileUploadService {
     @Autowired
     private ProductosServiceImp prod_service;
 
+    @SuppressWarnings("unchecked")
     @Override
     public ProductosEntity upload(Long id, MultipartFile file_cloudinary) {
         List<String> extensionesPermitidas = Arrays.asList("jpg", "jpeg", "png", "webp", "avif");

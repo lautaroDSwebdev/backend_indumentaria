@@ -48,4 +48,10 @@ public class ProductosServiceImp implements IProductoService{
         return find_prod;
 
     }
+
+    @Override
+    public ProductosEntity findProductoById(Long id) {
+        return iprod_repo.findById(id).orElse(null);
+    }
+
 }
