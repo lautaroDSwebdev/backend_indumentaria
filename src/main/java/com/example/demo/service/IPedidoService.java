@@ -8,13 +8,12 @@ import lombok.experimental.FieldDefaults;
 import java.util.List;
 import java.util.Optional;
 
-@FieldDefaults(level = AccessLevel.PUBLIC)
- public interface IPedidoService {
+public interface IPedidoService {
 
-     List<PedidoEntity>  getPedido();
-     Optional<PedidoEntity> getPedidoByCode(Long id);
-     void DeletePedido(Long id);
-     void PostPedido(PedidoEntity e);
-     PedidoEntity findPedido(Long id);
-     void PutPedido(PedidoEntity e);
+     public List<PedidoEntity>  getPedido();
+//     Optional<PedidoEntity> getPedidoByCode(Long id);
+    public void DeletePedido(Long id);
+    public void PostPedido(PedidoEntity e);
+    public void PutPedido(PedidoEntity e);
+    public PedidoEntity findPedido(Long id);
 }

@@ -20,10 +20,10 @@ public class PedidoServiceImp implements IPedidoService {
         return get_pedido;
     }
 
-    @Override
-    public Optional<PedidoEntity> getPedidoByCode(Long id) {
-        return Optional.empty();
-    }
+//    @Override
+//    public Optional<PedidoEntity> getPedidoByCode(Long id) {
+//        return Optional.empty();
+//    }
 
     @Override
     public void DeletePedido(Long id) {

@@ -3,7 +3,6 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.FieldDefaults;
 
 import java.util.List;
 
@@ -16,13 +15,14 @@ public class PedidoEntity {
 
      @Id
      @GeneratedValue(strategy = GenerationType.SEQUENCE)
-     private Long id_pedido;
-     private String fecha_pedido;
+     private Long idPedido;
+     private String fechaPedido;
+     private boolean seniaPagada;
 
-//     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//     private List<ProductosEntity> list_prods;
-//
-//     @OneToOne
-//     @JoinColumn(name = "comprador_relacion_id_comprador", referencedColumnName = "id_comprador")
-//     private CompradorEntity comprador_relacion;
+     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+     private List<ProductosEntity> listProds;
+
+     @OneToOne
+     @JoinColumn(name = "comprador_relacion_id_comprador", referencedColumnName = "idComprador")
+     private CompradorEntity compradorRelacion;
 }

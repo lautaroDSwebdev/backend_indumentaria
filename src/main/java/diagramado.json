@@ -1,0 +1,39 @@
+{
+  "pedido": {
+    "id": 1,
+    "locacion": "",
+    "horarios de abre y cierre": "",
+    "fecha del pedido": "",
+    "seña pagada": false,
+    "fabricante_del_produdto": {
+      "id": 0,
+      "proveniencia": "",
+      "costo_fabricante": 0
+    },
+    "pedido_cliente": {
+      "idCliente": 0,
+      "dni": 0,
+      "nombre": "",
+      "apellido": "",
+      "numero_tarjeta": "",
+      "foto_del_cliente": ""
+    },
+    "productos_del_pedido": [
+      {
+        "idProd": 0,
+        "marca": "",
+        "foto_ropa": "",
+        "stock": "",
+        "proveedor": "",
+        "costo": "",
+        "talle": "",
+        "color": "",
+        "categoriaProducto": {
+          "idCategoria": 0,
+          "nombre": "",
+          "descripcion": ""
+        }
+      }
+    ]
+  }
+}
