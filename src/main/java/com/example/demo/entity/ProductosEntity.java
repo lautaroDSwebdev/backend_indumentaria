@@ -18,12 +18,16 @@ public class ProductosEntity {
     private int precio;
     private int stock;
     private int numberoTalle;
-    private String fotoProducto;
     private String color;
 
 
     @OneToOne
     @JoinColumn(name = "tabla_categoria_prod", referencedColumnName = "id_categoria")
-    private CategoriaProductoEntity CategoriaProd;
+    private CategoriaProductoEntity categoria_prod;
+
+    @OneToOne
+    @JoinColumn(name = "tabla_de_imagen", referencedColumnName = "id_image")
+    private ImageEntity imagen_producto;
+
 
 }
