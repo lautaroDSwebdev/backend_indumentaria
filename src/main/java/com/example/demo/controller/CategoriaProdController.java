@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://fortunate-comfort-production.up.railway.app")
 @RequestMapping("/categoria")
 public class CategoriaProdController {
 

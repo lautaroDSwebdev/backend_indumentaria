@@ -15,7 +15,8 @@ public class ConfigCrossOrigin {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://fortunate-comfort-production.up.railway.app", "http://localhost:5173")
+                        .allowedOrigins("https://fortunate-comfort-production.up.railway.app",
+                                "http://localhost:5173")
                         .allowedMethods("GET", "POST", "PUT", "DELETE")
                         .allowedHeaders("*");
             }

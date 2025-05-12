@@ -12,7 +12,6 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin(origins = "https://fortunate-comfort-production.up.railway.app")
 @RequestMapping("/comprador")
 public class CompradorController {
 
