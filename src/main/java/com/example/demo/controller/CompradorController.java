@@ -12,8 +12,8 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin
 @RequestMapping("/comprador")
-@CrossOrigin(origins = "*")
 public class CompradorController {
 
     @Autowired
