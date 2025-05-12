@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@CrossOrigin
+//@CrossOrigin(origins = "*")
 @RequestMapping("/comprador")
 public class CompradorController {
 
