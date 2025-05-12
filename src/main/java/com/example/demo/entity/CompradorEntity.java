@@ -14,6 +14,7 @@ public class CompradorEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long idComprador;
     private String nombreComprador;
+    private String apellidoComprador;
     private Number dniComprador;
     private Number numTarjeta;
     private String fotoComprador;
