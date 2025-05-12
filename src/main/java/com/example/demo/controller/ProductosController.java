@@ -36,6 +36,8 @@ public class ProductosController {
         }
 
     }
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> DeleteProductos(@PathVariable Long id) throws IOException {
         Optional<ProductosEntity> prod = prod_service_imp.getProductosById(id);

@@ -24,7 +24,7 @@ public class PedidoController {
         ipedido_serv.PostPedido(e);
         return "Pedido creado 👍";
     }
-    @DeleteMapping("/del/{id}")
+    @DeleteMapping("/{id}")
     public String DeletePedidos(@PathVariable Long id){
         ipedido_serv.DeletePedido(id);
         return "Pedido eliminado 🚮";

@@ -18,6 +18,9 @@ public class PedidoEntity {
      private Long idPedido;
      private String fechaPedido;
      private boolean seniaPagada;
+     private String horaAbre;
+     private String horaAierre;
+     private String locacionTienda;
 
      @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
      private List<ProductosEntity> listProds;

@@ -26,7 +26,7 @@ public class CategoriaProdController {
         i_categService.PostCategoria(e);
         return "Categoria creada 👍";
     }
-    @DeleteMapping("/del/{id}")
+    @DeleteMapping("/{id}")
     public String DeleteCategoria(@PathVariable Long id){
         i_categService.DeleteCategoria(id);
         return "Categoria eliminada 🚮";

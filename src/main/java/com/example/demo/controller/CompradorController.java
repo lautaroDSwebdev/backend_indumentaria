@@ -28,7 +28,7 @@ public class CompradorController {
         i_compraservice.PostComprador(e);
         return "Comprador creado 👍";
     }
-    @DeleteMapping("/del/{id}")
+    @DeleteMapping("/{id}")
     public String DeleteComprador(@PathVariable Long id){
         i_compraservice.DeleteComprador(id);
         return "Comprador eliminado 🚮";
