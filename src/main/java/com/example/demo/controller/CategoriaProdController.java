@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/categoria")
-@CrossOrigin(origins = "https://fortunate-comfort-production.up.railway.app")
+@CrossOrigin(origins = "*")
 public class CategoriaProdController {
 
     @Autowired

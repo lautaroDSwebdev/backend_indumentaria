@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/prod")
-@CrossOrigin(origins = "https://fortunate-comfort-production.up.railway.app")
+@CrossOrigin(origins = "*")
 public class ProductosController {
 
     @Autowired

@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pedido")
-@CrossOrigin(origins = "https://fortunate-comfort-production.up.railway.app")
+@CrossOrigin(origins = "*")
 public class PedidoController {
 
     @Autowired
