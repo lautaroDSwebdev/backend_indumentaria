@@ -17,5 +17,5 @@ public class CompradorEntity {
     private String apellidoComprador;
     private Number dniComprador;
     private Number numTarjeta;
-    private String fotoComprador;
+//    private String fotoComprador;
 }
