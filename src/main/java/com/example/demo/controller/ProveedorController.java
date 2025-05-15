@@ -44,7 +44,7 @@ public class ProveedorController {
     }
 
     @GetMapping("/{id_prov}")
-    public ResponseEntity<?> GetProveedor(@PathVariable Long id_prod) {
+    public ResponseEntity<?> GetProveedor(@PathVariable Long id_prov) {
         for (ProveedorEntity e : iprov_serv.getProveedor()) {
             if (e.getId_proveedor().equals(id_prod)) {
                 return ResponseEntity.ok(e);
