@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -45,7 +44,7 @@ public class ProveedorController {
     }
 
     @GetMapping("/{id_prov}")
-    public ResponseEntity<?> GetProveedorByCode(@PathVariable Long id_prod) {
+    public ResponseEntity<?> GetProveedor(@PathVariable Long id_prod) {
         for (ProveedorEntity e : iprov_serv.getProveedor()) {
             if (e.getId_proveedor().equals(id_prod)) {
                 return ResponseEntity.ok(e);
