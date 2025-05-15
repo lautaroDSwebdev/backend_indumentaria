@@ -26,10 +26,6 @@ public class ProductosEntity {
     private CategoriaProductoEntity categoria_prod;
 
     @OneToOne
-    @JoinColumn(name = "tabla_de_imagen", referencedColumnName = "id_image")
-    private ImageEntity imagen_producto;
-
-    @OneToOne
     @JoinColumn(name = "tabla_producto_proveedor", referencedColumnName = "id_proveedor")
     private ProveedorEntity proveedorRelacion;
 

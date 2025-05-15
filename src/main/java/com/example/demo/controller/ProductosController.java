@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.PedidoEntity;
 import com.example.demo.entity.ProductosEntity;
-import com.example.demo.repo.IProductoRepo;
 import com.example.demo.service.IProductoService;
 import com.example.demo.service.ProductosServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,71 +24,34 @@ public class ProductosController {
     private ProductosServiceImp prod_service_imp;
 
     @PostMapping
-    public ResponseEntity<ProductosEntity> PostProductos(@RequestPart("prod") ProductosEntity body,
-                                                         @RequestPart("file") MultipartFile file) {
-        try {
-            ProductosEntity postProd = prod_service_imp.saveProductos(body, file);
-            return new ResponseEntity<>(postProd, HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-
+    public String PostProductos(@RequestBody ProductosEntity body) {
+        iprod_service.PostProductos(body);
+        return "Producto creado";
     }
 
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> DeleteProductos(@PathVariable Long id) throws IOException {
-        Optional<ProductosEntity> prod = prod_service_imp.getProductosById(id);
-        if(prod.isPresent()){
-            prod_service_imp.DeleteProductos(prod.get());
-            return new ResponseEntity<>(HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
+    public String DeleteProductos(@PathVariable Long id) {
+        iprod_service.DeleteProductos(id);
+        return "Producto eliminado";
     }
 
-//    entidad imagen
-//    pide el id del producto
-    @PutMapping("/{id}/image")
-    public ResponseEntity<ProductosEntity> PutImageProd(@PathVariable Long id, @RequestPart("file")MultipartFile file) throws IOException{
-        Optional<ProductosEntity> prod = prod_service_imp.getProductosById(id);
-        if(prod.isPresent()){
-            ProductosEntity putProd = prod_service_imp.updateProductoImage(file, prod.get());
-            return new ResponseEntity<>(putProd, HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-
-//    entidad producto
     @PutMapping
-    public ResponseEntity<?> PutProducto(@RequestBody ProductosEntity body){
-        try{
-            ProductosEntity putProd = prod_service_imp.PutProductos(body);
-            return new ResponseEntity<>(putProd,HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-//        if(body.getId_producto() == null){
-//            return ResponseEntity.badRequest().body("El id_producto no se esta detectando");
-//        }
-//        iprod_service.PutProductos(body);
-//        return ResponseEntity.ok(iprod_service.findProductos(body.getId_producto()));
+    public ProductosEntity PutProducto(@RequestBody ProductosEntity body) {
+        iprod_service.PutProductos(body);
+        return iprod_service.findProductos(body.getId_producto());
     }
-
 
 
     @GetMapping
-    public ResponseEntity<List<ProductosEntity>>   GetProductos(){
-        return new ResponseEntity<>(iprod_service.getProductos(), HttpStatus.OK)  ;
+    public ResponseEntity<List<ProductosEntity>> GetProductos() {
+        return new ResponseEntity<>(iprod_service.getProductos(), HttpStatus.OK);
     }
 
     @GetMapping("/{id_prod}")
-    public ResponseEntity<?>  GetProductos(@PathVariable Long id_prod){
-        for(ProductosEntity e: iprod_service.getProductos()){
-            if(e.getId_producto().equals(id_prod)){
+    public ResponseEntity<?> GetProductos(@PathVariable Long id_prod) {
+        for (ProductosEntity e : iprod_service.getProductos()) {
+            if (e.getId_producto().equals(id_prod)) {
                 return ResponseEntity.ok(e);
             }
         }

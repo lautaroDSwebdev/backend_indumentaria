@@ -22,7 +22,6 @@ public class ProveedorController {
 
     @PostMapping
     public String PostProductos(@RequestBody ProveedorEntity body) {
-
         iprov_serv.PostProveedor(body);
         return "Proveedor creado ✅";
 
@@ -46,7 +45,7 @@ public class ProveedorController {
     }
 
     @GetMapping("/{id_prov}")
-    public ResponseEntity<?> GetProveedor(@PathVariable Long id_prod) {
+    public ResponseEntity<?> GetProveedorByCode(@PathVariable Long id_prod) {
         for (ProveedorEntity e : iprov_serv.getProveedor()) {
             if (e.getId_proveedor().equals(id_prod)) {
                 return ResponseEntity.ok(e);

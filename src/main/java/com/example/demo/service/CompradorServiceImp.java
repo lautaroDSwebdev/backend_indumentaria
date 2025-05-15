@@ -27,10 +27,7 @@ public class CompradorServiceImp implements iCompradorService{
     }
 
 
-    @Override
-    public Optional<CompradorEntity> getCompradorByCode(Long id) {
-        return Optional.empty();
-    }
+
 
     @Override
     public void DeleteComprador(Long id) {

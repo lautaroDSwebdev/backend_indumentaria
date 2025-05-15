@@ -7,7 +7,6 @@ import java.util.Optional;
 
 public interface iCompradorService {
     public List<CompradorEntity> getComprador();
-    public Optional<CompradorEntity> getCompradorByCode(Long id);
     public void DeleteComprador(Long id);
     public void PostComprador(CompradorEntity e);
     public void PutComprador(CompradorEntity e);
