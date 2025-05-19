@@ -14,7 +14,6 @@ public class ProductosEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_producto;
     private String marca;
-    private String proveedor;
     private int precio;
     private int stock;
     private int numberoTalle;
