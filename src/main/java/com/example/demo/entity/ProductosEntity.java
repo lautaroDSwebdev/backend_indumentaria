@@ -21,12 +21,10 @@ public class ProductosEntity {
 
 
     @ManyToOne
-    @JoinColumn(name = "tabla_categoria_prod", referencedColumnName = "id_categoria")
-    private CategoriaProductoEntity categoria_prod;
+    @JoinColumn(name = "categoria_productos")
+    private CategoriaProductoEntity categoriaProds;
 
-//    @ManyToOne
-//    @JoinColumn(name = "tabla_producto_proveedor", referencedColumnName = "id_proveedor")
-//    private ProveedorEntity proveedorRelacion;
+
 
 
 }
