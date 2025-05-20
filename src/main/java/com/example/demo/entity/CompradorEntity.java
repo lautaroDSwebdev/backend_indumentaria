@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "Compradores")
 public class CompradorEntity {
 
     @Id
@@ -17,5 +18,4 @@ public class CompradorEntity {
     private String apellidoComprador;
     private Number dniComprador;
     private Number numTarjeta;
-//    private String fotoComprador;
 }

@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "Productos")
 public class ProductosEntity {
 
     @Id
@@ -21,10 +22,6 @@ public class ProductosEntity {
 
 
     @ManyToOne
-    @JoinColumn(name = "categoria_productos")
-    private CategoriaProductoEntity categoriaProds;
-
-
-
-
+    @JoinColumn(name = "categorias_id_producto")
+    private CategoriaProductoEntity categorias;
 }
