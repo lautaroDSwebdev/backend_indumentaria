@@ -20,13 +20,13 @@ public class ProductosEntity {
     private String color;
 
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "tabla_categoria_prod", referencedColumnName = "id_categoria")
     private CategoriaProductoEntity categoria_prod;
 
-    @OneToOne
-    @JoinColumn(name = "tabla_producto_proveedor", referencedColumnName = "id_proveedor")
-    private ProveedorEntity proveedorRelacion;
+//    @ManyToOne
+//    @JoinColumn(name = "tabla_producto_proveedor", referencedColumnName = "id_proveedor")
+//    private ProveedorEntity proveedorRelacion;
 
 
 }
