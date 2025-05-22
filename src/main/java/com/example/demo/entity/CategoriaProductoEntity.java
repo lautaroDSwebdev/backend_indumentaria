@@ -19,11 +19,7 @@ public class CategoriaProductoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id_categoria;
-    private String nombre;
-    private String descripcion;
-
-    @OneToMany(mappedBy = "categorias")
-    private List<ProductosEntity> productos;
-
+    private String nombreCategoria;
+    private String descripcionCategoria;
 
 }
