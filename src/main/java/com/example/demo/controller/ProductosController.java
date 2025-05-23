@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.PedidoEntity;
 import com.example.demo.entity.ProductosEntity;
 import com.example.demo.service.IProductoService;
 import com.example.demo.service.ProductosServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -44,18 +46,24 @@ public class ProductosController {
 
 
     @GetMapping
-    public ResponseEntity<List<ProductosEntity>> GetProductos() {
-        return new ResponseEntity<>(iprod_service.getProductos(), HttpStatus.OK);
+    public  ResponseEntity<Page<ProductosEntity>> GetProductos(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ){
+        Page<ProductosEntity> prod_get = iprod_service.getProductos(page, size);
+
+        return ResponseEntity.ok(prod_get);
     }
 
-    @GetMapping("/{id_prod}")
-    public ResponseEntity<?> GetProductos(@PathVariable Long id_prod) {
-        for (ProductosEntity e : iprod_service.getProductos()) {
-            if (e.getId_producto().equals(id_prod)) {
-                return ResponseEntity.ok(e);
-            }
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró la data");
-    }
+
+//    @GetMapping("/{id_prod}")
+//    public ResponseEntity<?> GetProductos(@PathVariable Long id_prod) {
+//        for (ProductosEntity e : iprod_service.getProductos()) {
+//            if (e.getId_producto().equals(id_prod)) {
+//                return ResponseEntity.ok(e);
+//            }
+//        }
+//        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No se encontró la data");
+//    }
 
 }
