@@ -3,6 +3,9 @@ package com.example.demo.service;
 import com.example.demo.entity.PedidoEntity;
 import com.example.demo.repo.IPedidoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,10 +18,15 @@ public class PedidoServiceImp implements IPedidoService {
     private IPedidoRepo ipedido_repo;
 
     @Override
-    public List<PedidoEntity> getPedido() {
-        List<PedidoEntity> get_pedido = ipedido_repo.findAll();
-        return get_pedido;
+    public Page<PedidoEntity> getPedido(int page, int size) {
+        Pageable pagin_pedido = PageRequest.of(page, size);
+        return ipedido_repo.findAll(pagin_pedido);
     }
+//    @Override
+//    public Page<PedidoEntity> getPedido() {
+//        List<PedidoEntity> get_pedido = ipedido_repo.findAll();
+//        return get_pedido;
+//    }
 
     @Override
     public void DeletePedido(Long id) {

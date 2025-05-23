@@ -26,9 +26,6 @@ public class PedidoEntity {
      @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
      private List<ProductosEntity> listProds;
 
-//     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//     private List<ProveedorEntity> listProveedor;
-
      @OneToOne
      @JoinColumn(name = "comprador_relacion_id_comprador",
              referencedColumnName = "idComprador")
