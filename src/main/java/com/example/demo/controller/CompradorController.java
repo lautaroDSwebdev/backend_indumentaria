@@ -5,6 +5,7 @@ import com.example.demo.entity.PedidoEntity;
 import com.example.demo.service.iCompradorService;
 import com.example.demo.service.IPedidoService;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +20,12 @@ public class CompradorController {
     private iCompradorService i_compraservice;
 
     @GetMapping
-    public List<CompradorEntity> GetComprador(){
-        return i_compraservice.getComprador();
+    public  ResponseEntity<Page<CompradorEntity>> GetComprador(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size
+    ){
+        Page<CompradorEntity> comprador_get = i_compraservice.getComprador(page, size);
+        return ResponseEntity.ok(comprador_get);
     }
 
     @PostMapping

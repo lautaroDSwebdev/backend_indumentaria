@@ -4,6 +4,9 @@ import com.example.demo.entity.CompradorEntity;
 import com.example.demo.repo.iCompradorRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,9 +19,9 @@ public class CompradorServiceImp implements iCompradorService{
     private iCompradorRepo i_comprarepo;
 
     @Override
-    public List<CompradorEntity> getComprador() {
-        List<CompradorEntity> get_comprador = i_comprarepo.findAll();
-        return get_comprador;
+    public Page<CompradorEntity> getComprador(int page, int size) {
+        Pageable comprador_page = PageRequest.of(page, size);
+        return i_comprarepo.findAll(comprador_page);
     }
 
     @Override
